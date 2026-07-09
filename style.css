@@ -1,103 +1,90 @@
-{
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-    .cabecalho {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 15px 25px;
-    }
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f5f2f2;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
 
-    .cartao {
-        width: 260px;
-        height: 200px;
-    }
+main {
+    flex: 1;
+    padding: 24px;
+}
 
-    .cartao-imagem {
-        width: 100%;
-    }
+.cabecalho {
+    background-color: #000000;
+    color: #fff;
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-    body {
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-    }
+.cabecalho-link,
+.menu-inicio {
+    color: #fff;
+    text-decoration: none;
+}
 
-    main {
-        flex: 1;
-    }
+.cartoes {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
 
-    .cabecalho {
-        background-color: #000000;
-        color: #fff;
-        padding: 15px 25px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
+.cartao {
+    width: 260px;
+    height: 200px;
+    perspective: 1000px;
+}
 
-    .cabecalho-link {
-        color: #fff;
-        text-decoration: none;
-    }
+.cartao-interno {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
 
-    body {
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-        background-color: #f5f2f2;
-    }
+.cartao-frente,
+.cartao-verso {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    backface-visibility: hidden;
+    overflow: hidden;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+}
 
-    footer {
-        background-color: #000000;
-        padding: 15px 25px;
-        color: #fff;
-    }
+.cartao-verso {
+    transform: rotateY(180deg);
+}
 
-    .cartao-interno {
-        position: relative;
-    }
+.cartao:hover .cartao-interno {
+    transform: rotateY(180deg);
+}
 
-    .cartao-frente,
-    .cartao-verso {
-        position: absolute;
-        border-radius: 12px;
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-    }
+.cartao-imagem {
+    width: 100%;
+    height: auto;
+    display: block;
+}
 
-    .cartao-frente,
-    .cartao-verso {
-        position: absolute;
-        border-radius: 12px;
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-    }
-
-    .cartao-interno {
-        position: relative;
-        transition: transform 0.8s;
-        transform-style: preserve-3d;
-    }
-
-    .cartao-frente,
-    .cartao-verso {
-        position: absolute;
-        border-radius: 12px;
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-        backface-visibility: hidden;
-    }
-
-    .cartao-verso {
-        transform: rotateY(180deg);
-    }
-
-    .cartao:hover .cartao-interno {
-        transform: rotateY(180deg);
-    }
-
-    <section class="cartoes"><article class="cartao">...</article><article class="cartao">...</article></section><section class="cartoes"><article class="cartao">...</article><article class="cartao">...</article></section>section {
-        display: flex;
-        gap: 16px;
-    }
+footer {
+    background-color: #000;
+    padding: 15px 25px;
+    color: #fff;
+}
